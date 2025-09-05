@@ -1,10 +1,10 @@
-Algoritmo PolCompTel
+Algoritmo PolCompTelef
 	
-	Escribir "Politicas de cobro sobre el uso del teléfono"
+	Escribir "Politicas de cobro sobre el uso del telÃ©fono"
 	Definir min, dia, turn Como Entero
 	Definir prec, tprec Como Real
-	Escribir "0. Domingo. 1.Lunes. 2. Martes. 3.Miércoles. 4.Jueves. 5.Viernes. 6.Sábado"
-	Escribir "Qué día es: "
+	Escribir "0. Domingo. 1.Lunes. 2. Martes. 3.MiÃ©rcoles. 4.Jueves. 5.Viernes. 6.SÃ¡bado"
+	Escribir "QuÃ© dÃ­a es: "
 	Leer dia
 	Escribir "Turno: (1.Matutino 2.Vespertino)"
 	Leer turn
