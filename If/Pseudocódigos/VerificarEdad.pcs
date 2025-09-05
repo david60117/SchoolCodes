@@ -1,0 +1,14 @@
+Algoritmo VerificarEdad
+	Definir edad Como Entero
+	Escribir 'Ingresa tu edad'
+	Leer edad
+	Si edad<18 Entonces
+		Escribir 'Es menor de edad'
+	SiNo
+		Si edad>=18 Y edad<65 Entonces
+			Escribir 'Es mayor de edad'
+		SiNo
+			Escribir 'Es adulto mayor'
+		FinSi
+	FinSi
+FinAlgoritmo
