@@ -1,4 +1,4 @@
-public class FirstWhile {
+public class Ciclos {
     public static void main(String[] args) {
         //Ciclo while
         int n=1,result=0;
