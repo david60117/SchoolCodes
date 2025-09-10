@@ -44,6 +44,6 @@ public class PoliComTelef {
         System.out.println("Precio antes de imp.: "+prec);
         System.out.print("Precio: "+tprec);
 
-        
+        sc.close();
     }
 }
