@@ -7,6 +7,10 @@ public class Figuras {
         int i, j, fig, lin;
         System.out.print("Ingrese el núm de la figura deseada (1. Cuadrado 2. Triángulo 3. Triángulo inverso): ");
         fig = sc.nextInt();
+        if (fig>3){
+            System.out.println("Instrucción invalida");
+            System.exit(0);
+        }
         System.out.print("Dimensiones: ");
         lin = sc.nextInt();
 
@@ -42,7 +46,7 @@ public class Figuras {
                 }
                 break;
             default:
-                throw new AssertionError();
+                System.out.print("Instruccion invalida");;
         }
     }
     
