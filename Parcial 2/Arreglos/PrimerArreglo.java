@@ -2,11 +2,12 @@ import java.util.Scanner;
 
 public class PrimerArreglo {
     public static void main(String[] args) {
-        int[] A = new int[5];
+        
         Scanner sc = new Scanner(System.in);
         System.out.println("Ejemplo arreglos unidimensionales");
         System.out.println("¿Cuántos elementos va a guardar?");
         int N = sc.nextInt();
+        int[] A = new int[N];
 
         for(int i=0;i<N;i++){
             System.out.println("Introduza un valor para la posición: "+i);
@@ -28,7 +29,7 @@ public class PrimerArreglo {
         System.out.println("Utilizando foreach");
         for(int i:A){
             System.out.print(A[i]+" ");
-        } */
+        }*/ 
     }
     
 }
