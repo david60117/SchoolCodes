@@ -29,7 +29,7 @@ public class OperacionesAd {
     }
 
     public void mostrarasc() {
-        if (n == 0) {
+        if (arreglo.length == 0) {
             System.out.println("El arreglo está vacío.");
             return;
         }
@@ -91,7 +91,7 @@ public class OperacionesAd {
         int i=0;
         int valor;
         while (true){
-            System.out.print("Ingrese el valor a modificar");
+            System.out.print("Ingrese el valor a modificar: ");
             if (sc.hasNextInt()){
                 valor = sc.nextInt();
                 break;
@@ -150,6 +150,7 @@ public class OperacionesAd {
         }
             
         arreglo = nuevoArreglo; 
+        n=nuevoLength;
             
         System.out.println("El valor " + valor + " ha sido eliminado. Nuevo tamaño: " + arreglo.length);
 
