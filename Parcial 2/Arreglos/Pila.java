@@ -55,11 +55,10 @@ public class Pila {
 
     // Mostrar los elementos de la pila
     public void mostrar() { 
-        System.out.println(TOPE); 
         if (TOPE == -1) { 
             System.out.println("La pila está vacía."); 
         } else { 
-            System.out.println("=== ELEMENTOS EN LA PILA ===");
+            System.out.println("ELEMENTOS EN LA PILA");
             for (int i = TOPE; i >= 0; i--) { 
                 System.out.println(PILA[i]);
             }
