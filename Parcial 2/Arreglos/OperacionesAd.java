@@ -1,92 +1,60 @@
 import java.util.Scanner;
 
 public class OperacionesAd {
-    public static int[] arreglo = new int[0];
+    
+    int n;
+    int[] arreglo;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int opcion;
-
-        do {
-            System.out.println("\nMENÚ PRINCIPAL");
-            System.out.println("1. Guardar/Almacenar elementos");
-            System.out.println("2. Recorrer arreglo (ascendente)");
-            System.out.println("3. Recorrer arreglo (descendente)");
-            System.out.println("4. Buscar elemento");
-            System.out.println("5. Modificar elemento");
-            System.out.println("6. Eliminar elemento");
-            System.out.println("7. Eliminar todo el conjunto");
-            System.out.println("8. Ordenar ascendente (burbuja)");
-            System.out.println("9. Ordenar descendente (burbuja)");
-            System.out.println("0. Salir");
-            System.out.print("Seleccione una opción: ");
-
-            if (sc.hasNextInt()) {
-                opcion = sc.nextInt();
-            } else {
-                opcion = -1;
-                sc.next(); 
-            }
-            
-            switch (opcion) {
-                case 1 -> almacenar(sc);
-                case 2 -> recorrerAsc();
-                case 3 -> recorrerDesc();
-                case 4 -> buscar(sc);
-                case 5 -> modificar(sc);
-                case 6 -> eliminarElemento(sc);
-                case 7 -> eliminarConjunto();
-                case 8 -> ordenarAsc();
-                case 9 -> ordenarDesc();
-                case 0 -> System.out.println("Saliendo del programa...");
-                default -> System.out.println("Opción inválida");
-            }
-        } while (opcion != 0);
+    public OperacionesAd(){
+        Scanner sc =new Scanner(System.in);
+        System.out.print("Numeró deseado de elementos que contenga el arreglo: ");
+        n=sc.nextInt();
+        arreglo = new int [n];
     }
 
-    public static void almacenar(Scanner sc) {
-        System.out.print("¿Cuántos elementos desea almacenar? ");
-        int n = sc.nextInt();
-        arreglo = new int[n];
+    public void almacenar() {
         for (int i = 0; i < n; i++) {
             while (true) {
-            System.out.print("Elemento [" + i + "]: ");
-            if (sc.hasNextInt()) {
-                arreglo[i] = sc.nextInt();
-                break; 
-            } else {
-                System.out.println("Mensaje: Entrada inválida para el elemento. Ingrese un entero.");
-                sc.next(); 
+                Scanner sc = new Scanner(System.in);
+                System.out.print("Elemento [" + i + "]: ");
+                if (sc.hasNextInt()) {
+                    arreglo[i] = sc.nextInt();
+                    break; 
+                } else {
+                    System.out.println("Mensaje: Entrada inválida para el elemento. Ingrese un entero.");
+                    sc.next(); 
+                }
             }
-        }
         }
     }
 
-    public static void recorrerAsc() {
-        if (arreglo.length == 0) {
+    public void mostrarasc() {
+        if (n == 0) {
             System.out.println("El arreglo está vacío.");
             return;
         }
         System.out.println("Recorrido ascendente:");
-        for (int i = 0; i < arreglo.length; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.print(arreglo[i] + " ");
         }
         System.out.println();
     }
+    
 
-    public static void recorrerDesc() {
+    public void mostrardes (){
         if (arreglo.length == 0) {
             System.out.println("El arreglo está vacío.");
             return;
         }
         System.out.println("Recorrido descendente:");
-        for (int i = arreglo.length - 1; i >= 0; i--) {
+        for (int i = n - 1; i >= 0; i--) {
             System.out.print(arreglo[i] + " ");
         }
         System.out.println();
     }
 
-    public static void buscar(Scanner sc) {
+    public void buscar(){
+        Scanner sc = new Scanner(System.in);
         if (arreglo.length == 0) {
             System.out.println("El arreglo está vacío.");
             return;
@@ -104,7 +72,6 @@ public class OperacionesAd {
             }
         }
         int i = 0;
-        int n = arreglo.length;
         while ((i<n)&&(valor!= arreglo[i])){
             i++;
         }
@@ -115,7 +82,8 @@ public class OperacionesAd {
         }
     }
 
-    public static void modificar(Scanner sc) {
+    public void modificar(){
+        Scanner sc = new Scanner(System.in);
         if (arreglo.length == 0) {
             System.out.println("El arreglo está vacío.");
             return;
@@ -132,20 +100,20 @@ public class OperacionesAd {
                 sc.next();            
             }
         }
-        while ((i<arreglo.length)&&(valor!= arreglo[i])){
+        while ((i<n)&&(valor!= arreglo[i])){
             i++;
         }
-        if (i==arreglo.length){
+        if (i==n){
             System.out.println("Es valor "+ valor + " no esta en el arreglo");
         } else{
             System.out.println("Ingrese nuevo valor: ");
             int y = sc.nextInt();
             arreglo[i]= y;
         }
-        
     }
 
-    public static void eliminarElemento(Scanner sc) {
+    public void eliminar (){
+        Scanner sc = new Scanner (System.in);
         if (arreglo.length == 0) {
             System.out.println("El arreglo está vacío.");
             return;
@@ -163,17 +131,17 @@ public class OperacionesAd {
             }
         }
 
-        while ((i<arreglo.length)&&(valor!= arreglo[i])){
+        while ((i<n)&&(valor!= arreglo[i])){
             i++;
         }
-        if (i==arreglo.length){
+        if (i==n){
             System.out.println("El valor "+valor+" no se encuentra en el arreglo");
         } else {
-            for (int k=i;k<arreglo.length-1;k++) {
+            for (int k=i;k<n-1;k++) {
                 arreglo[k] = arreglo[k + 1];
             }
         }
-        int nuevoLength = arreglo.length - 1;
+        int nuevoLength = n - 1;
         int[] nuevoArreglo = new int[nuevoLength];
             
             
@@ -185,15 +153,14 @@ public class OperacionesAd {
             
         System.out.println("El valor " + valor + " ha sido eliminado. Nuevo tamaño: " + arreglo.length);
 
-
     }
 
-    public static void eliminarConjunto() {
+    public void eliminarConjunto() {
         arreglo = new int[0];
         System.out.println("Todos los elementos fueron eliminados.");
     }
 
-    public static void ordenarAsc() {
+    public void ordenarAsc() {
         if (arreglo.length == 0) {
             System.out.println("El arreglo está vacío.");
             return;
@@ -210,7 +177,7 @@ public class OperacionesAd {
         System.out.println("Arreglo ordenado en forma ascendente.");
     }
 
-    public static void ordenarDesc() {
+    public void ordenarDesc() {
         if (arreglo.length == 0) {
             System.out.println("El arreglo está vacío.");
             return;
@@ -225,5 +192,49 @@ public class OperacionesAd {
             }
         }
         System.out.println("Arreglo ordenado en forma descendente.");
+    }
+
+
+    public static void main(String[] args) {
+        OperacionesAd operacion = new OperacionesAd();
+        int op=0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Operaciones de arreglos");
+
+        do {
+            System.out.println("\nMENÚ PRINCIPAL");
+            System.out.println("1. Guardar/Almacenar elementos");
+            System.out.println("2. Recorrer arreglo (ascendente)");
+            System.out.println("3. Recorrer arreglo (descendente)");
+            System.out.println("4. Buscar elemento");
+            System.out.println("5. Modificar elemento");
+            System.out.println("6. Eliminar elemento");
+            System.out.println("7. Eliminar todo el conjunto");
+            System.out.println("8. Ordenar ascendente (burbuja)");
+            System.out.println("9. Ordenar descendente (burbuja)");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción: ");
+
+            if (sc.hasNextInt()) {
+                op = sc.nextInt();
+            } else {
+                op = -1;
+                sc.next(); 
+            }
+            
+            switch (op) {
+                case 1 -> operacion.almacenar();
+                case 2 -> operacion.mostrarasc();
+                case 3 -> operacion.mostrardes();
+                case 4 -> operacion.buscar();
+                case 5 -> operacion.modificar();
+                case 6 -> operacion.eliminar();
+                case 7 -> operacion.eliminarConjunto();
+                case 8 -> operacion.ordenarAsc();
+                case 9 -> operacion.ordenarDesc();
+                case 0 -> System.out.println("Saliendo del programa...");
+                default -> System.out.println("Opción inválida");
+            }
+        } while (op != 0);
     }
 }
