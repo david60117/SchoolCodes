@@ -66,25 +66,40 @@ public class Pila {
         } 
     }   
 
-    public void popculquiera(){
-        if (TOPE == -1) { 
-            System.out.println("La pila está vacía. No se puede eliminar."); 
-            return; 
-        } 
-        Scanner sc = new Scanner(System.in); 
-        System.out.print("Elemento a eliminar: "); 
-        String valor = sc.nextLine(); 
-        // Buscar el elemento 
-        int pos = -1; 
-        for (int i = 0; i <= TOPE; i++) { 
-            if (PILA[i].equals(valor)) { 
-                pos = i; 
-                break; 
-            } 
-        
+    public void popCualquiera() {
+        if (TOPE == -1) {
+            System.out.println("La pila está vacía. No se puede eliminar.");
+            return;
         }
-    TOPE=pos-1;
-    }
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Elemento a eliminar: ");
+        String valor = sc.nextLine();
+
+        // Buscar el elemento
+        int pos = -1;
+        for (int i = 0; i <= TOPE; i++) {
+            if (PILA[i].equals(valor)) {
+                pos = i;
+                break;
+            }
+        }
+
+        if (pos == -1) {
+            System.out.println("El elemento \"" + valor + "\" no se encuentra en la pila.");
+            return;
+        }
+
+        // Desplazar los elementos hacia abajo desde la posición encontrada
+        for (int i = pos; i < TOPE; i++) {
+            PILA[i] = PILA[i + 1];
+        }
+
+        TOPE--; 
+
+        System.out.println("Elemento \"" + valor + "\" eliminado correctamente.");
+        }
+    
     public static void main(String[] args) {
         Pila operacion = new Pila();
         int op=0;
@@ -111,7 +126,7 @@ public class Pila {
                     operacion.pop();
                     break;
                 case 3: //Elimina cualquie elemento en la pila
-                    operacion.popculquiera();
+                    operacion.popCualquiera();
                     break;
                 case 4: //Eliminar todos los elementos de la pila
                     operacion.vaciar();
