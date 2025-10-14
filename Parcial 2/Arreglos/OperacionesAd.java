@@ -138,7 +138,7 @@ public class OperacionesAd {
             System.out.println("El valor "+valor+" no se encuentra en el arreglo");
         } else {
             for (int k=i;k<n-1;k++) {
-                arreglo[k] = arreglo[k + 1];
+                arreglo[k] = arreglo[k+1];
             }
         }
         int nuevoLength = n - 1;

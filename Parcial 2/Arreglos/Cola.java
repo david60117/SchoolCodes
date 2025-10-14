@@ -35,7 +35,7 @@ public class Cola {
         }
     }
 
-    // Método original: eliminar el primer elemento (FIFO)
+   
     public String desencolar() {
         if (frente == -1 || frente > final_) {
             System.out.println("La cola está vacía. No se puede eliminar.");
@@ -44,12 +44,12 @@ public class Cola {
             String Aux = COLA[frente];
             System.out.println("Se eliminó: " + Aux);
 
-            // Recorrer todos los elementos hacia adelante
+            
             for (int i = frente; i < final_; i++) {
                 COLA[i] = COLA[i + 1];
             }
 
-            final_--; // ahora hay un espacio libre al final
+            final_--; 
 
             if (final_ < frente) {
                 frente = -1;
@@ -61,7 +61,7 @@ public class Cola {
         }
     }
 
-    // 🔹 Nuevo método: eliminar un elemento específico
+
     public void eliminarEspecifico() {
         if (frente == -1 || frente > final_) {
             System.out.println("La cola está vacía. No se puede eliminar.");
@@ -74,7 +74,7 @@ public class Cola {
 
         int pos = -1;
 
-        // Buscar la posición del elemento
+       
         for (int i = frente; i <= final_; i++) {
             if (COLA[i].equals(valor)) {
                 pos = i;
@@ -87,12 +87,12 @@ public class Cola {
             return;
         }
 
-        // Recorrer los elementos hacia adelante
+        
         for (int i = pos; i < final_; i++) {
             COLA[i] = COLA[i + 1];
         }
 
-        final_--; // reducir tamaño lógico de la cola
+        final_--; 
 
         if (final_ < frente) {
             frente = -1;
