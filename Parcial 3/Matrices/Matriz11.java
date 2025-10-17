@@ -24,18 +24,66 @@ public class Matriz11 {
             arreglo = new int[x][y];
         }
 
+        boolean Vacios = false;
+        for (int f = 0; f < x; f++) {
+            for (int c = 0; c < y; c++) {
+                if (arreglo[f][c] == Integer.MIN_VALUE) {
+                    Vacios = true;
+                    break;
+                }
+            }
+            if (Vacios) break;
+        }
+
+        if (Vacios) {
+            System.out.println("Se detectaron espacios vacíos en la matriz.");
+            System.out.println("¿Qué desea hacer?");
+            System.out.println("1. Rellenar los espacios vacíos.");
+            System.out.println("2. Reescribir toda la matriz.");
+            System.out.print("Seleccione una opción: ");
+            int opcion = sc.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    for (int f = 0; f < x; f++) {
+                        for (int c = 0; c < y; c++) {
+                            if (arreglo[f][c] == Integer.MIN_VALUE) {
+                                while (true) {
+                                    System.out.print("Elemento [" + f + "][" + c + "]: ");
+                                    if (sc.hasNextInt()) {
+                                        arreglo[f][c] = sc.nextInt();
+                                        break;
+                                    } else {
+                                        System.out.println("Mensaje: Entrada inválida. Ingrese un entero.");
+                                        sc.next();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    System.out.println("Espacios vacíos rellenados correctamente.");
+                    return;
+                case 2:
+                    System.out.println("Reescribiendo toda la matriz...");
+                    break;
+                default:
+                    System.out.println("Opción inválida. Se procederá a reescribir toda la matriz.");
+                    break;
+            }
+        }            
+
         for (int f = 0; f < x; f++) {
             for(int c = 0; c < y; c++){
                 while (true) {
-                System.out.print("Elemento [" + f + "]["+ c +"]: ");
-                if (sc.hasNextInt()) {
-                    arreglo[f][c] = sc.nextInt();
-                    break; 
-                } else {
-                    System.out.println("Mensaje: Entrada inválida para el elemento. Ingrese un entero.");
-                    sc.next(); 
+                    System.out.print("Elemento [" + f + "]["+ c +"]: ");
+                    if (sc.hasNextInt()) {
+                        arreglo[f][c] = sc.nextInt();
+                        break; 
+                    } else {
+                        System.out.println("Mensaje: Entrada inválida para el elemento. Ingrese un entero.");
+                                sc.next(); 
+                    }
                 }
-            }
             }
         }
     } 
