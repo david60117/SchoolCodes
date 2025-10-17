@@ -4,9 +4,9 @@ public class Matriz11 {
     int x;
     int y;
     int [][] arreglo;
+    Scanner sc = new Scanner(System.in);
 
     public Matriz11(){
-        Scanner sc =new Scanner(System.in);
         System.out.print("Numeró deseado de filas que contenga la matriz: ");
         x=sc.nextInt();
         System.out.print("Número deseado de columnas que contenga la matriz: ");
@@ -15,10 +15,18 @@ public class Matriz11 {
     }
 
    public void almacenar() {
+        if (x == 0 || y == 0) {
+            System.out.println("Elimino la matriz anterior, defina las nuevas dimensiones...");
+            System.out.print("Número deseado de filas que contenga la matriz: ");
+            x = sc.nextInt();
+            System.out.print("Número deseado de columnas que contenga la matriz: ");
+            y = sc.nextInt();
+            arreglo = new int[x][y];
+        }
+
         for (int f = 0; f < x; f++) {
             for(int c = 0; c < y; c++){
                 while (true) {
-                Scanner sc = new Scanner(System.in);
                 System.out.print("Elemento [" + f + "]["+ c +"]: ");
                 if (sc.hasNextInt()) {
                     arreglo[f][c] = sc.nextInt();
@@ -33,7 +41,7 @@ public class Matriz11 {
     } 
 
     public void mostrar() {
-        if (arreglo.length == 0) {
+        if (x == 0 || y == 0) {
             System.out.println("La matriz está vacía.");
             return;
         }
@@ -41,15 +49,17 @@ public class Matriz11 {
         for (int f = 0; f < x; f++) {
             System.out.println();
             for(int c = 0; c < y; c++){
-                System.out.print(arreglo[f][c] + " ");
+                if (arreglo[f][c] == Integer.MIN_VALUE)
+                    System.out.print("  ");
+                else
+                    System.out.print(arreglo[f][c] + " ");
             }
         }
         System.out.println();
     }
 
     public void buscar(){
-        Scanner sc = new Scanner(System.in);
-        if (arreglo.length == 0) {
+        if (x == 0 || y == 0) {
             System.out.println("La matriz está vacía.");
             return;
         }
@@ -87,8 +97,7 @@ public class Matriz11 {
     }
 
     public void modificar(){
-        Scanner sc = new Scanner(System.in);
-        if (arreglo.length == 0) {
+        if (x == 0 || y == 0) {
             System.out.println("La matriz está vacía.");
             return;
         }
@@ -135,8 +144,7 @@ public class Matriz11 {
     }
 
     public void eliminarelemento(){
-        Scanner sc = new Scanner(System.in);
-        if (arreglo.length == 0) {
+        if (x == 0 || y == 0) {
             System.out.println("La matriz está vacía.");
             return;
         }
@@ -168,7 +176,7 @@ public class Matriz11 {
         }
         if (encontrado){
             System.out.println("Elemento eliminado");
-            arreglo[fila][columna] = 0;
+            arreglo[fila][columna] = Integer.MIN_VALUE;
         } else {
             System.out.println("Es valor "+ valor + " no esta en el arreglo");
         }
@@ -176,6 +184,8 @@ public class Matriz11 {
 
     public void eliminarConjunto() {
         arreglo = new int[0][0];
+        x=0;
+        y=0;
         System.out.println("Todos los elementos fueron eliminados.");
     }
     
