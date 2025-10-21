@@ -86,7 +86,7 @@ public class Transporte{
     public static void main(String[] args) {
         Transporte seleccion = new Transporte();
         System.out.println("SISTEMA DE PAGO DE CHOFERES");
-        int op=0;
+        int op = 0;
         Scanner sc = new Scanner(System.in);
 
         do {
