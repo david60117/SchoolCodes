@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-public class Matriz11 {
+public class Matriz {
     int x;
     int y;
     int [][] arreglo;
     Scanner sc = new Scanner(System.in);
 
-    public Matriz11(){
+    public Matriz(){
         System.out.print("Numeró deseado de filas que contenga la matriz: ");
         x=sc.nextInt();
         System.out.print("Número deseado de columnas que contenga la matriz: ");
@@ -275,7 +275,7 @@ public class Matriz11 {
     }
 
     public static void main(String[] args) {
-        Matriz11 operacion = new Matriz11();
+        Matriz operacion = new Matriz();
         int op=0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Operaciones de arreglos");
