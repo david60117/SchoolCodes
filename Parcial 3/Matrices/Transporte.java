@@ -110,6 +110,7 @@ public class Transporte{
                 default -> System.out.println("Opción inválida");
             }
         } while (op != 0);
+        sc.close();
     }
     
 }
